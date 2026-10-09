@@ -1807,7 +1807,8 @@ build();addSkips();
 setTimeout(liftStk,200);
 
 
-function addSkips(){
+function posters(){document.querySelectorAll('.scr[data-src]').forEach(sc=>{if(sc.dataset.pst)return;sc.dataset.pst=1;const u=sc.dataset.src.replace(/\.mp4$/,'.jpg'),im=new Image();im.onload=()=>{sc.style.backgroundImage='url("'+u+'")';sc.style.backgroundSize='cover';sc.style.backgroundPosition='center'};im.src=u})}
+function addSkips(){posters();
 document.querySelectorAll('.skip').forEach(e=>e.remove());
 const secs=[...document.querySelectorAll('#brands > section.brand')];
 secs.forEach((sec,i)=>{
