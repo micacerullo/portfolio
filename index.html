@@ -1797,7 +1797,7 @@ document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 document.addEventListener('click',e=>{
 const p=e.target.closest('.pl');if(!p)return;
 const s=p.parentElement,src=s.dataset.src;
-const v=document.createElement('video');v.controls=true;v.playsInline=true;v.preload='none';v.src=src+'?v=5';
+const v=document.createElement('video');v.controls=true;v.playsInline=true;v.setAttribute('controlsList','nodownload nofullscreen noremoteplayback');v.setAttribute('disablePictureInPicture','');v.setAttribute('disableRemotePlayback','');v.setAttribute('webkit-playsinline','');v.oncontextmenu=e=>e.preventDefault();v.preload='none';v.src=src+'?v=5';
 v.onerror=()=>{v.remove();s.classList.remove('playing');p.style.display='';s.classList.add('miss');p.querySelector('em').textContent=t('miss')+src};
 document.querySelectorAll('.scr video').forEach(o=>o.pause());s.classList.add('playing');
 s.appendChild(v);p.style.display='none';v.play().catch(()=>{});
