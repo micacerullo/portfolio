@@ -1805,7 +1805,7 @@ const p=e.target.closest('.pl');if(!p)return;
 const s=p.parentElement,src=s.dataset.src;
 let v=s.querySelector('video');
 if(v){document.querySelectorAll('.scr video').forEach(o=>{if(o!==v)o.pause()});v.play().catch(()=>{});return}
-v=document.createElement('video');v.controls=false;v.playsInline=true;v.setAttribute('controlsList','nodownload nofullscreen noremoteplayback');v.setAttribute('disablePictureInPicture','');v.setAttribute('disableRemotePlayback','');v.setAttribute('webkit-playsinline','');v.oncontextmenu=e=>e.preventDefault();v.preload='none';v.src=src+'?v=13';
+v=document.createElement('video');v.controls=false;v.playsInline=true;v.setAttribute('controlsList','nodownload nofullscreen noremoteplayback');v.setAttribute('disablePictureInPicture','');v.setAttribute('disableRemotePlayback','');v.setAttribute('webkit-playsinline','');v.oncontextmenu=e=>e.preventDefault();v.preload='none';v.src=src+'?v=14';
 const bar=document.createElement('div');bar.className='vbar';bar.innerHTML='<i></i>';const fill=bar.firstChild;
 v.onerror=()=>{v.remove();bar.remove();s.classList.remove('playing');p.style.display='';s.classList.add('miss');p.querySelector('em').textContent=t('miss')+src};
 v.onclick=ev=>{ev.stopPropagation();v.paused?v.play().catch(()=>{}):v.pause()};
@@ -1823,7 +1823,7 @@ build();addSkips();
 setTimeout(liftStk,200);
 
 
-function posters(){document.querySelectorAll('.scr[data-src]').forEach(sc=>{if(sc.dataset.pst)return;sc.dataset.pst=1;const u=sc.dataset.src.replace(/\.mp4$/,'.jpg'),im=new Image();im.onload=()=>{sc.style.backgroundImage='url("'+u+'?v=13")';sc.style.backgroundSize='cover';sc.style.backgroundPosition='center'};im.src=u+'?v=13'})}
+function posters(){document.querySelectorAll('.scr[data-src]').forEach(sc=>{if(sc.dataset.pst)return;sc.dataset.pst=1;const u=sc.dataset.src.replace(/\.mp4$/,'.jpg'),im=new Image();im.onload=()=>{sc.style.backgroundImage='url("'+u+'?v=14")';sc.style.backgroundSize='cover';sc.style.backgroundPosition='center'};im.src=u+'?v=14'})}
 function addSkips(){posters();
 document.querySelectorAll('.skip').forEach(e=>e.remove());
 const secs=[...document.querySelectorAll('#brands > section.brand')];
